@@ -18,7 +18,7 @@ class SimpleCipher
     end
 
     def options
-      { key: [Settings.secrets.vault_encryption_key].pack('H*') }
+      { key: ['9ca2b755061d0fdc1157839818a02d4ed165d6874adb251653ad20d1451afed4'].pack('H*') }
     end
   end
 

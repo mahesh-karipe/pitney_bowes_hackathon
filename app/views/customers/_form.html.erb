@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :account_id %>
-    <%= form.text_field :account_id %>
-  </div>
-
+  <%= form.hidden_field :account_id %>
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
@@ -35,6 +31,39 @@
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number %>
   </div>
+
+  <% form.fields_for :address, customer.address do |address_form|%>
+    <div class="field">
+      <%= address_form.label :address1 %>
+      <%= address_form.text_field :address1 %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :address2 %>
+      <%= address_form.text_field :address2 %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :city %>
+      <%= address_form.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :state %>
+      <%= address_form.text_field :address1 %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :zipcode %>
+      <%= address_form.text_field :zipcode %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :country %>
+      <%= address_form.text_field :country %>
+    </div>
+
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

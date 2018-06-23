@@ -1,3 +1,4 @@
+require 'rqrcode'
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
@@ -10,11 +11,12 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @qr = QRCodeService.generate(type: 'survey', customer_id: @customer.id)
   end
 
   # GET /customers/new
   def new
-    @customer = Customer.new
+    @customer = Customer.new(account_id: 1)
   end
 
   # GET /customers/1/edit
